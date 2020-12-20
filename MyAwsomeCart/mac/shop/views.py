@@ -4,9 +4,9 @@ from django.http import HttpResponse
 from .models import Product
 from math import ceil
 def index(request):
-    products=Product.objects.all()
+    # products=Product.objects.all()
 
-    n=len(products)
+    # n=len(products)
     # params={'no_of_slides':nslides,'range':range(1+nslides),'product':products}
     # allproducts=[[products,range(1+nslides),nslides],
     #              [products,range(1+nslides),nslides],
