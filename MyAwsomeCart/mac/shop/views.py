@@ -7,14 +7,23 @@ def index(request):
     products=Product.objects.all()
 
     n=len(products)
-    nslides=n//4+ ceil((n/4)-(n//4))
     # params={'no_of_slides':nslides,'range':range(1+nslides),'product':products}
-    allproducts=[[products,range(1+nslides),nslides],
-                 [products,range(1+nslides),nslides],
-                 [products, range(1 + nslides), nslides],
-                 [products, range(1 + nslides), nslides]
-                 ]
-    params={'allprods':allproducts}
+    # allproducts=[[products,range(1+nslides),nslides],
+    #              [products,range(1+nslides),nslides],
+    #              [products, range(1 + nslides), nslides],
+    #              [products, range(1 + nslides), nslides]
+    #              ]
+    allprods=[]
+
+    
+    catprod=Product.objects.values('category','id')
+    cats={item['category'] for item in catprod}
+    for cat in cats:
+        prod=Product.objects.filter(category=cat)
+        n=len(prod)
+        nslides = n // 4 + ceil((n / 4) - (n // 4))
+        allprods.append(([prod,range(1,nslides),nslides]))
+    params={'allprods':allprods}
     return render(request,'shop/index.html',params)
 
 def about(request):
