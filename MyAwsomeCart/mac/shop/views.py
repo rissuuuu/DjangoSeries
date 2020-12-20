@@ -22,7 +22,7 @@ def index(request):
         prod=Product.objects.filter(category=cat)
         n=len(prod)
         nslides = n // 4 + ceil((n / 4) - (n // 4))
-        allprods.append(([prod,range(1,nslides),nslides]))
+        allprods.append(([prod,range(1,nslides),nslides,cat]))
     params={'allprods':allprods}
     return render(request,'shop/index.html',params)
 

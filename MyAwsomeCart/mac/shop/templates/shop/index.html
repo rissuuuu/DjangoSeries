@@ -37,8 +37,8 @@ padding-right:0;
 
     <!--    Slideshow starts here-->
 
-    {% for product,range,nlsides in allprods %}
-    <h1>Mens Fashion</h1>
+    {% for product,range,nlsides,cat in allprods %}
+    <h1>{{cat}}</h1>
     <div id="demo{{forloop.counter}}" class="carousel slide my-4" data-ride="carousel">
         <ul class="carousel-indicators">
             <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
