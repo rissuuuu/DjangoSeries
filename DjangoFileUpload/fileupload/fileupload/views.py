@@ -13,5 +13,6 @@ def upload(request):
         fs=FileSystemStorage()
         name=fs.save(upload_file.name,upload_file)
         url=fs.url(name)
+        print(url)
     return render(request,'upload.html')
 
