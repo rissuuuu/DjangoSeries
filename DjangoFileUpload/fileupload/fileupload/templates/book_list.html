@@ -17,8 +17,10 @@
   <tr>
     <td>{{book.title}}</td>
     <td>{{book.author}}</td>
-    <td>{{book.pdf}}</td>
-
+    <td>
+      <a href="{{book.pdf.url}}" class="btn btn-primary btn-sm" target="_blank">
+        Download
+      </a></td>
   </tr>
   {% endfor %}
   </tbody>
