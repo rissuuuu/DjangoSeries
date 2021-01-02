@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic import TemplateView
 from django.core.files.storage import FileSystemStorage
 from .forms import BookForm
@@ -24,7 +24,13 @@ def book_list(request):
     return render(request,'book_list.html')
 
 def upload_book(request):
-    form=BookForm()
+    if request.method=='POST':
+        form=BookForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('booklist')
+    else:
+        form=BookForm()
     return render(request,'upload_book.html',{
         'form':form
     })
