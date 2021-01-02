@@ -4,4 +4,29 @@
 {% block content %}
   <h2>Book List</h2>
 
+<table class="table">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Download</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for book in books %}
+  <tr>
+    <td>{{book.title}}</td>
+    <td>{{book.author}}</td>
+    <td>{{book.pdf}}</td>
+
+  </tr>
+  {% endfor %}
+  </tbody>
+
+
+  {{book.title}}
+
+</table>
+
+
 {% endblock %}
