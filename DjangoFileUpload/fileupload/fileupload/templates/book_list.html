@@ -12,6 +12,7 @@
   <thead>
   <tr>
     <th>Title</th>
+    <th>Cover</th>
     <th>Author</th>
     <th>Download</th>
   </tr>
@@ -19,9 +20,14 @@
   <tbody>
   {% for book in books %}
   <tr>
-    <td>{{book.title}}
+    <td>{{book.title}}</td>
+    <td>
       {% if book.cover %}
-        <img src="{{book.cover.url}}">
+
+        <img src="{{book.cover.url}}" style="width:100px;">
+      {% else %}
+        <span class="text-muted">No image</span>
+        </td>
       {% endif %}
     </td>
     <td>{{book.author}}</td>
